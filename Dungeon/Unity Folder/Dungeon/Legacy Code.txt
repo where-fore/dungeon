@@ -1,0 +1,337 @@
+
+Intro
+------
+private string[] openingNarration = {
+		"You awaken on another hot day, truly ready to sell some crisp apples in the square.", //1
+		"Conversing with your valued village-mates, you catch wind of adventure.", //2
+		"There is a huge, scary-monster-guarded treasure in a fairly close cavern.", //3
+		"Your apples are far away at home before dusk.", //4
+		"In the twilight and rain, you take shelter under a great tree on the hillside.", //5
+		"As the rain pounds you duck further into the hillside, taking cover under the rocks and stones.", //6
+		"The deeper into the cave and the night you travel, the more alert you become.", //6
+		"You carefully brandish a torch and light it, illuminating a handcrafted ladder at your feet. This hillside is deeper than you thought.", //7
+		"As you dismount the ladder, a sudden gust of cold air snuffs your torch.", //8
+		"You think you hear stirrings in the distance.", //9
+        
+	};
+    
+	private void CreateContinueNarration() {
+		continueNarration = new List<string>();
+
+		continueNarration.Add("Your spelunk resulted in death! You survived " + gameTurnManager.turnsTaken + " turns."); //1
+		continueNarration.Add("You are the talk of the town, some talk of your foolishness, some of your arrogance, and most of your passing.\n\nYour quest is an inspiration and a legend for the children of the town."); // 2
+
+		continueNarration.Add("You awaken on a hot day, truly ready to sell some juicy plums in the square."); //3
+		continueNarration.Add("In the square, you hear an excited retelling of that tired old tale: apple vendor ventures into the forest, and never returns."); //4
+		continueNarration.Add("It just now strikes you, all that time spent exploring the woods in your youth could come in handy."); //5
+		continueNarration.Add("If that apple peddler never returned, that treasure must still be down there."); //6
+		continueNarration.Add("Your little plums are far away at home before dusk."); //7
+		continueNarration.Add("In the twilight and light rain, you take shelter under a great tree on the hillside."); //8
+		continueNarration.Add("As the rain pounds you duck further into the hillside, taking cover under the rocks and stones."); //9
+		continueNarration.Add("The deeper into the cave and the night you travel, the more alert you become."); //10
+		continueNarration.Add("You carefully brandish a torch and light it, illuminating a handcrafted ladder at your feet. This hillside is deeper than you thought."); //11
+		continueNarration.Add("As you dismount the ladder, you find a worn map on the ground. It seems to be of this very cave."); //12
+		continueNarration.Add("A sudden gust of cold air snuffs your torch. You think you hear stirrings in the distance."); //13
+
+	}
+    
+private void CreateEscapeNarration() {
+		escapeNarration = new List<string>();
+
+		if (gameStateManager.continueGame) {
+			
+			if (gameStateManager.treasureCollected == 0) {			
+				escapeNarration.Add("Congratulations! You escaped with your life. Spelunking is dangerous, maybe it's time to go back to selling fruit."); //1
+				escapeNarration.Add("You eventually return to your town to a plundered cart, devoid of plums, or a future."); //2
+
+			}
+			else if (gameStateManager.treasureCollected == 1) {
+				escapeNarration.Add("Congratulations! You escaped with a piece of loot.\n\nSpelunking may be dangerous, but you turned a pretty penny!"); //1
+				
+			}
+			else if (gameStateManager.treasureCollected > 1) {
+				escapeNarration.Add("Congratulations! You escaped with " + gameStateManager.treasureCollected + " pieces of loot.\n\nSpelunking may be dangerous, but with these spoils you'll never need to leave your home again!"); //1
+				
+			}
+
+		}
+		else {
+		
+			if (gameStateManager.treasureCollected == 0) {			
+				escapeNarration.Add("Congratulations! You escaped with your life. Spelunking is dangerous, maybe it's time to go back to selling apples."); //1
+				escapeNarration.Add("You eventually return to your town to a plundered cart, devoid of apples, customers, or a future."); //2
+
+			}
+			else if (gameStateManager.treasureCollected == 1) {
+				escapeNarration.Add("Congratulations! You escaped with a piece of loot.\n\nSpelunking may be dangerous, but you turned a pretty penny!"); //1
+
+			}
+			else if (gameStateManager.treasureCollected > 1) {
+				escapeNarration.Add("Congratulations! You escaped with " + gameStateManager.treasureCollected + " pieces of loot.\n\nSpelunking may be dangerous, but with these spoils you'll never need to leave your home again!"); //1
+				
+			}
+		}
+
+	}
+    
+    
+ 
+
+
+Audio Transitions during Intro
+--------------------------------
+	private void UpdateGameAudio (int lineNumber) {
+
+		if (gameStateManager.wonGame) {
+
+			UpdateWonGameAudio(lineNumber);
+
+		}
+		else if (gameStateManager.continueGame) {
+
+			UpdateContinueGameAudio(lineNumber);
+
+		}
+		else {
+
+			UpdateIntroGameAudio(lineNumber);
+			// coroutine = UpdateIntroGameAudio(lineNumber);
+			// StartCoroutine(coroutine);
+
+		}
+
+	}
+
+	private void UpdateIntroGameAudio (int lineNumber) {
+
+		if (lineNumber == 4) {
+
+			gameAudioManager.TransitionToTitleLightRain(0);
+
+		}
+
+		if (lineNumber == 5) {
+
+			gameAudioManager.TransitionToTitleHeavyRain(10);
+
+		}
+
+		if (lineNumber == 7) {
+
+			gameAudioManager.TransitionToTitleHeavierRain();
+
+		}
+
+		if (lineNumber == 8) {
+
+			gameAudioManager.TransitionToTitleCave();
+
+		}
+
+		if (lineNumber == 9) {
+
+			gameAudioManager.TransitionToGame();
+		}
+
+
+	}
+
+	private void UpdateContinueGameAudio (int lineNumber) {
+
+		if (lineNumber == 7) {
+
+			gameAudioManager.TransitionToTitleLightRain(0);
+
+		}
+
+		if (lineNumber == 8) {
+
+			gameAudioManager.TransitionToTitleHeavyRain(8);
+
+		}
+
+		if (lineNumber == 11) {
+
+			gameAudioManager.TransitionToTitleHeavierRain();
+
+		}
+
+		if (lineNumber == 12) {
+
+			gameAudioManager.TransitionToTitleCave();
+
+		}
+
+		if (lineNumber == 13) {
+
+			gameAudioManager.TransitionToGame();
+		}
+
+
+	}
+	
+	private void UpdateWonGameAudio (int lineNumber) {
+
+
+	}
+    
+    
+    
+Monster moving plan
+--------------------
+possible:
+
+findTarget(x)
+
+
+> same implementation as python:
+    -move adjacent square that isn't in [moved here this turn]
+    -add that move to [moved here this turn]
+    -repeat x times
+
+    ~~ monster tends to stay in the same quadrant
+        -> could be fixed
+
+
+        
+> random point in area:
+    -create cross with radius x
+         _
+       _| |_
+      |_ M _|  raidus = 1
+        |_|
+    
+    -choose random space inside cross, and move there.
+
+    ~~ i don't want a move(6) to be able to move 1 square to the right only - i want to be able to design a move(6) or a move(1), not just crank up the move(x) to crank up the scary
+
+    
+    
+> random point in outer rim of cross
+    -create cross with radius x
+        _
+      _| |_
+    _|  o  |_
+   |_  oMo  _| radius = 2
+     |_ o _|   can't move on "o"
+       |_|
+
+    -choose random space inside outer rim of cross and move there
+    
+    ~~ i don't want to be able to move a million miles in a certain direction, diagonal movement is better
+    
+    
+ 
+> random point in rectangle around monster
+    -pick from a few sizes of rectangle based on move(x)
+    -can't move on "o"
+     _____
+    |     |
+    |  M  | move(1)   
+    |_____|
+     _______
+    |       |
+    |  oMo  | move(2)
+    |_______|
+       _______
+     _|       |_
+    |    ooo    | 
+    |   ooMoo   | move(3)
+    |_   ooo   _|
+      |_______|
+      
+    -choose random space and move there
+
+
+> chase(int moves)
+    temp = monster.position
+    
+    while moves {
+        while sound.x > temp.x {
+            temp.x + 1;
+            moves - 1
+            continue
+        }
+            
+        while sound.x < temp.x {
+            temp.x - 1:
+            moves - 1
+            continue
+        }   
+       // same for y
+    }
+ 
+ monsterMovePotentials.Add(new Vector2(gameObject.Position.x + 1, gameObject.Position. y);
+    
+    
+    
+    
+    
+    
+??????
+-------
+
+
+	private GameObject rockOnRight;
+	private GameObject rockOnLeft;
+	private GameObject rockOnTop;
+	private GameObject rockOnBottom;
+	private SpriteRenderer rockOnRightSpriteRenderer;
+	private SpriteRenderer rockOnLeftSpriteRenderer;
+	private SpriteRenderer rockOnTopSpriteRenderer;
+	private SpriteRenderer rockOnBottomSpriteRenderer;
+	private Collider2D rockOnRightCollider;
+	private Collider2D rockOnLeftCollider;
+	private Collider2D rockOnTopCollider;
+	private Collider2D rockOnBottomCollider;
+	private Vector2 rightPointA;
+	private Vector2 rightPointB;
+	private Vector2 leftPointA;
+	private Vector2 leftPointB;
+	private Vector2 topPointA;
+	private Vector2 topPointB;
+	private Vector2 bottomPointA;
+	private Vector2 bottomPointB;
+    
+    	void FindNeighbourRocks(){
+		
+		// move right:
+		//	point a = ( (x+0.5), (y-0.5) )
+		//	point b = ( (x+1.5), (y+0.5) )
+
+		// move left:
+		//	point a = ( (x-0.5), (y-0.5) )
+		//	point b = ( (x-1.5), (y+0.5) )
+
+		// move up:
+		//	point a = ( (x+0.5), (y+0.5) )
+		//	point b = ( (x-0.5), (y+1.5) )
+
+		// move down:
+		//	point a = ( (x+0.5), (y-0.5) )
+		//	point b = ( (x-0.5), (y-1.5) )
+
+		rightPointA = new Vector2(transform.position.x + 0.5f, transform.position.y - 0.5f);
+		rightPointB = new Vector2(transform.position.x + 1.5f, transform.position.y + 0.5f);
+		rockOnRightCollider = Physics2D.OverlapArea(rightPointA, rightPointB);
+		rockOnRight = rockOnRightCollider.gameObject;
+		rockOnRightSpriteRenderer = rockOnRight.GetComponent<SpriteRenderer>();
+
+		leftPointA = new Vector2(transform.position.x - 0.5f, transform.position.y - 0.5f);
+		leftPointB = new Vector2(transform.position.x - 1.5f, transform.position.y + 0.5f);
+		rockOnLeftCollider = Physics2D.OverlapArea(leftPointA, leftPointB);
+		rockOnLeft = rockOnLeftCollider.gameObject;
+		rockOnLeftSpriteRenderer = rockOnLeft.GetComponent<SpriteRenderer>();
+
+		topPointA = new Vector2(transform.position.x + 0.5f, transform.position.y + 0.5f);
+		topPointB = new Vector2(transform.position.x - 0.5f, transform.position.y + 1.5f);
+		rockOnTopCollider = Physics2D.OverlapArea(topPointA, topPointB);
+		rockOnTop = rockOnTopCollider.gameObject;
+		rockOnTopSpriteRenderer = rockOnTop.GetComponent<SpriteRenderer>();
+
+		bottomPointA = new Vector2(transform.position.x + 0.5f, transform.position.y - 0.5f);
+		bottomPointB = new Vector2(transform.position.x - 0.5f, transform.position.y - 1.5f);
+		rockOnBottomCollider = Physics2D.OverlapArea(bottomPointA, bottomPointB);
+		rockOnBottom = rockOnBottomCollider.gameObject;
+		rockOnBottomSpriteRenderer = rockOnBottom.GetComponent<SpriteRenderer>();
+	}

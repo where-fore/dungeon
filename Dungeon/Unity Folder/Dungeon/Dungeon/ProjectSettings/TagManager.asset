@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Fog
+  - Monster
+  - Game Manager
+  - Game Messages UI
+  - Main Menu
+  - Treasure
+  - Fog Parent
+  - Wall
+  - Audio Manager
+  - Monster Parent
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 868572997
+    locked: 0
+  - name: On Ground
+    uniqueID: 3139402353
+    locked: 0
+  - name: Fog
+    uniqueID: 2071803385
+    locked: 0
+  - name: Above Fog
+    uniqueID: 1812208547
+    locked: 0
+  - name: Scary Eyes
+    uniqueID: 3719525753
+    locked: 0

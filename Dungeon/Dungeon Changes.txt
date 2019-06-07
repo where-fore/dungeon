@@ -1,0 +1,45 @@
+Issues
+-------
+
+Corners don't always reveal
+    > I think this is a symptom of the major location problem - everything should be rounded to nearest int, and use rigidbodies/triggers properly
+    
+Mashing space to skip the opening can lead you to wait on your first turn
+
+You can still press enter to interact with objects during the delay between you being eaten and the game ending
+
+
+
+Features
+---------
+
+Something to restart game, reset map - a main menu (with audio sliders too)
+
+Some indication that enter is to interact
+
+More interesting text/ui - maybe borrow from number guesser ui
+
+
+
+
+
+
+
+also my note to try to fix the wonky placement detection
+(where transform.position.x should = 3, but it is slightly rounded so calculations like
+        [is (monster.transform.position.x == player.transform.position.x)]
+        do not function properly
+-
+
+have every object have a private int xCoord = 0 {get, return xCoord}
+                         private int yCoord = 0 {get, return yCoord}
+and use these to compare to each other
+    private void Update()
+    {
+        transform.position = new Vector2(xCoord, yCoord);
+    }
+    
+    
+
+
+also - considering making gameplay/teaser/release trailers (or other advertisements) for all the games, just for practice
