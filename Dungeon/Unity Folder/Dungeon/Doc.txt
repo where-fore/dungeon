@@ -10,8 +10,36 @@ TO DO
 ------
 current:
 
+-menu
+	-restart game
+	-volume
+	-exit game
 
+-redo ground texture to make tiles more clear
+-redo walls to make tiles more clear
 
+-somehow make ladder visible while you are on it
+
+-periods or no periods?
+
+-sometimes hitting enter to interact doesn't work
+
+-interact sfx/vfx
+	-loot
+
+-"clamber up the ladder" victory quote has no period
+
+-i don't enjoy entering the dungeon again and it being fully explored
+
+-unity crashed while demoing, not sure why
+
+-some explanation of controls
+
+-after spawning near treasure and looting, the monster did not chase the sounds
+
+-is 5 a good treasure number? maybe make it a setting in menu or option when starting a new game
+
+-fog doesn't need to be an on/off - you can still have darkness over tiles you already traversed. The only necessary information is where the monster is, where the chests are, and where you have already explored. all of these can be shown without actually lighting the whole cave up and cheaping the monsters look
 
 
 
