@@ -1,6 +1,6 @@
 import random
 import os
-import pyautogui
+# import pyautogui
 
 '''
 to do
@@ -52,9 +52,9 @@ CELLS = ((1, 5), (2, 5), (3, 5), (4, 5), (5, 5), (6, 5), (7, 5), (8, 5), (9, 5),
 
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
-    pyautogui.keyDown("shift")
-    pyautogui.press("]")
-    pyautogui.keyUp("shift")
+    # pyautogui.keyDown("shift")
+    # pyautogui.press("]")
+    # pyautogui.keyUp("shift")
     pass
 
 
