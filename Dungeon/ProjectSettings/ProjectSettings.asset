@@ -710,13 +710,13 @@ PlayerSettings:
   webGLNameFilesAsHashes: 0
   webGLDataCaching: 0
   webGLDebugSymbols: 0
-  webGLEmscriptenArgs: 
+  webGLEmscriptenArgs: ' -s TOTAL_STACK=1MB '
   webGLModulesDirectory: 
   webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-  webGLCompressionFormat: 1
-  webGLLinkerTarget: 0
+  webGLCompressionFormat: 2
+  webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols: {}

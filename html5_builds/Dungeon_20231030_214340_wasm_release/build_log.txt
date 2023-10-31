@@ -1,0 +1,25 @@
+Unity version: 2019.3.6f1
+Project: Patrick Dover Dungeon 0.1
+Build date: 2023 Oct 30 21:43:40
+
+HTML5 build finished in 02m 33s
+
+index.html: 950B
+Build/Dungeon_20231030_214340_wasm_release.data.unityweb: 8.269MB
+Build/Dungeon_20231030_214340_wasm_release.json: 551B
+Build/Dungeon_20231030_214340_wasm_release.wasm.code.unityweb: 11.904MB
+Build/Dungeon_20231030_214340_wasm_release.wasm.framework.unityweb: 440.677KB
+Build/UnityLoader.js: 155.573KB
+TemplateData/favicon.ico: 12.964KB
+TemplateData/fullscreen.png: 345B
+TemplateData/progressEmpty.Dark.png: 155B
+TemplateData/progressEmpty.Light.png: 159B
+TemplateData/progressFull.Dark.png: 137B
+TemplateData/progressFull.Light.png: 142B
+TemplateData/progressLogo.Dark.png: 2.288KB
+TemplateData/progressLogo.Light.png: 2.206KB
+TemplateData/style.css: 1.629KB
+TemplateData/UnityProgress.js: 1.184KB
+TemplateData/webgl-logo.png: 3.503KB
+
+Total output size (Compression Disabled): 20.780MB
